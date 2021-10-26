@@ -1,5 +1,5 @@
 {
-  "name": "js-portfolio",
+  "name": "Webpack_portfolio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "Leandro Diaz <juanca930.jcdz@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
