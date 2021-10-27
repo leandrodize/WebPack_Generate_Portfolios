@@ -2,6 +2,8 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const cssExtractPlugin = require('mini-css-extract-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
+const cssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const terserPlugin = require('terser-webpack-plugin');
 
 
 module.exports = {
@@ -9,6 +11,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
+        assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     resolve: {
         extensions: ['.js']
@@ -34,6 +37,20 @@ module.exports = {
                 test:/\.png/,
                 type: 'asset/resource'
             },
+            {
+                test: /\.(woff|woff2)$/,
+                use:{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        mimetype: 'application/font-woff',
+                        name: "[name].[ext]",
+                        outputPath: './dist/assets/fonts',
+                        publicPath: './dist/assets/fonts',
+                        esModule: false,
+                    }
+                }
+            }
         ]
     },
     plugins: [
@@ -48,9 +65,20 @@ module.exports = {
                {
                    from: path.resolve(__dirname, 'src', 'assets/images'),
                    to: 'assets/images'
+               },
+               {
+                   from: path.resolve(__dirname, 'src', 'assets/fonts'),
+                   to: 'assets/fonts'
                }
            ]
        }),
-    ]
+    ],
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new cssMinimizerPlugin(),
+            new terserPlugin(),
+        ]
+    }
 };
 
