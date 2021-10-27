@@ -14,7 +14,13 @@ module.exports = {
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     resolve: {
-        extensions: ['.js']
+        extensions: ['.js'],
+        alias: {
+            '@assets': path.resolve(__dirname, 'src/assets/'),
+            '@styles': path.resolve(__dirname, 'src/styles/'),
+            '@templates':path.resolve(__dirname, 'src/templates/'),
+            '@utils':path.resolve(__dirname, 'src/utils/'),
+        }
     },
     module: {
         rules: [
