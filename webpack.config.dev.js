@@ -13,6 +13,7 @@ module.exports = {
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     mode: 'development', //npx webpack --mode development
+    watch: true, //activate mode watch
     resolve: {
         extensions: ['.js'],
         alias: {
