@@ -3,6 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const cssExtractPlugin = require('mini-css-extract-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const dotEnvWebpack = require('dotenv-webpack');
+const bundlerAnalyzer = require('webpack-bundle-analyzer');
 
 
 module.exports = {
@@ -79,6 +80,7 @@ module.exports = {
            ]
        }),
        new dotEnvWebpack(),
+       new bundlerAnalyzer(),
     ],
     devServer: {
         open: true,
