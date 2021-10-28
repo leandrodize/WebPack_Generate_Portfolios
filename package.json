@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev" : "webpack --config webpack.config.dev.js"
+    "dev": "webpack --config webpack.config.dev.js",
+    "prod" : "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "Leandro Diaz <juanca930.jcdz@gmail.com>",
@@ -14,6 +15,7 @@
     "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.5.0",
     "css-minimizer-webpack-plugin": "^3.1.1",

@@ -14,6 +14,7 @@ module.exports = {
         filename: 'main.js',
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
+    mode: 'production', //npx webpack --mode production
     resolve: {
         extensions: ['.js'],
         alias: {
