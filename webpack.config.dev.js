@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const cssExtractPlugin = require('mini-css-extract-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const dotEnvWebpack = require('dotenv-webpack');
-const bundlerAnalyzer = require('webpack-bundle-analyzer');
+//const bundlerAnalyzer = require('webpack-bundle-analyzer');
 
 
 module.exports = {
@@ -14,6 +14,7 @@ module.exports = {
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     mode: 'development', //npx webpack --mode development
+    devtool: 'source-map',
     resolve: {
         extensions: ['.js'],
         alias: {
@@ -80,7 +81,7 @@ module.exports = {
            ]
        }),
        new dotEnvWebpack(),
-       new bundlerAnalyzer(),
+       //new bundlerAnalyzer(),
     ],
     devServer: {
         open: true,
